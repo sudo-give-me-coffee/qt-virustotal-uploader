@@ -39,6 +39,19 @@ make -j4
 
 make clean
 
+wget -q https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+chmod +x linuxdeploy-x86_64.AppImage
+
+cp vtlogo-sigma.png VirusTotalUploader.png
+
+
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run \
+                              --executable=./VirusTotalUploader \
+                              --create-desktop-file \
+                              --appdir=teste
+                              --icon-file=VirusTotalUploader.png || true
+
+
 echo "------------------------------------------------------"
-find . | grep -Ev ".cpp$|.h$|.ui$"
+find ./teste
 echo "------------------------------------------------------"
