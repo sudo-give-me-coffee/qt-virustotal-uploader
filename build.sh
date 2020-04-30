@@ -36,4 +36,9 @@ qtchooser -run-tool=qmake -qt=5
 make -j4
 
 #optionally install 
-sudo make install
+
+make clean
+
+echo "------------------------------------------------------"
+find . | grep -Ev ".cpp$|.h$|.ui$"
+echo "------------------------------------------------------"
